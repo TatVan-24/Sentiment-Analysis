@@ -20,16 +20,16 @@ def load_resources():
     nltk.download('wordnet')
     nltk.download('omw-1.4')
     
-    vectorizer      = joblib.load(r'tfidf_vectorizer.pkl')
-    XGB_model       = joblib.load(r'xgb_model.pkl')
-    GB_model        = joblib.load(r'gb_model.pkl') 
-    RF_model        = joblib.load(r'rf_model.pkl')
-    DT_model        = joblib.load(r'dtree_model.pkl') 
-    ADA_model       = joblib.load(r'ADA_model.pkl')   
+    vectorizer      = joblib.load(r"D:\merged_partition_content\Tu_Hoc\AIO2025\MyPoject\Module03\Sentiment Analysis\model\tfidf_vectorizer.pkl")
+    XGB_model       = joblib.load(r'D:\merged_partition_content\Tu_Hoc\AIO2025\MyPoject\Module03\Sentiment Analysis\model\imdb_xgb_lib_model.pkl')
+    # GB_model        = joblib.load(r'gb_model.pkl') 
+    # RF_model        = joblib.load(r'rf_model.pkl')
+    # DT_model        = joblib.load(r'dtree_model.pkl') 
+    # ADA_model       = joblib.load(r'ADA_model.pkl')   
     
-    return vectorizer, XGB_model, RF_model, GB_model, DT_model, ADA_model 
+    return vectorizer, XGB_model
 try:
-    vectorizer, XGB_model, RF_model, GB_model, DT_model, ADA_model = load_resources()
+    vectorizer, XGB_model = load_resources()
     
     stop = set(stopwords.words('english'))
     wl = WordNetLemmatizer()
@@ -69,10 +69,10 @@ st.sidebar.write("Algorithm Options :")
 
 model_options = {
     "XGBoost (Default)": XGB_model,
-    "Random Forest": RF_model,
-    "Gradient Boosting": GB_model,
-    "Decision Tree": DT_model,
-    "AdaBoost": ADA_model
+    # "Random Forest": RF_model,
+    # "Gradient Boosting": GB_model,
+    # "Decision Tree": DT_model,
+    # "AdaBoost": ADA_model
 }
 
 selected_model_name = st.sidebar.selectbox(
